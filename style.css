@@ -22,8 +22,10 @@ body {
 }
 
 .row {
+  min-height: 100vh;
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 @media only screen and (max-width: 768px) {
   .row {
@@ -33,6 +35,17 @@ body {
 
 [class*=col-] {
   width: 100%;
+  min-height: 50vh;
+  height: 50vh;
+  -moz-flex-align: center;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (min-width: 768px) {
+  [class*=col-] {
+    height: 100vh;
+  }
 }
 
 @media only screen and (min-width: 600px) {
@@ -133,13 +146,61 @@ body {
     width: 100%;
   }
 }
+.form-container {
+  text-align: center;
+}
+@media only screen and (max-width: 768px) {
+  .form-container {
+    height: 60vh;
+  }
+}
+
+.heading-container,
+.form-container {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+@media only screen and (min-width: 769px) {
+  .heading-container,
+.form-container {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+h1 {
+  color: #fff;
+  margin: auto;
+  align-self: center;
+  align-items: center;
+  align-content: center;
+  padding: 10%;
+  padding-left: 20%;
+}
+@media only screen and (min-width: 769px) {
+  h1 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
 form {
   background-color: rgba(255, 255, 255, 0.5);
   display: inline-flex;
   flex-direction: column;
   align-self: center;
   align-items: center;
-  padding: 5%;
+  border-radius: 5px;
+  padding: 8%;
 }
 
 input[type=text],
@@ -149,10 +210,16 @@ button {
   margin: 5%;
   font-size: 1em;
   padding: 3%;
-  padding-left: 5%;
+  padding-left: 10%;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 8px;
   border: none;
+}
+
+button[type=submit] {
+  border: 1px white solid;
+  background-color: #1c2746;
+  color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */

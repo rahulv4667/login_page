@@ -30,8 +30,13 @@ body{
 }
 
 .row{
+
+    min-height: 100vh;
+
     display:flex;
     flex-direction: row;
+    align-items: center;
+    
     
     @media only screen and (max-width:768px) {
         flex-direction: column;
@@ -41,6 +46,18 @@ body{
 
 [class*="col-"] {
     width: 100%;
+    min-height:50vh;
+    height:50vh;
+    @media only screen and (min-width:768px) {
+        height:100vh;
+    }
+    
+
+    -moz-flex-align:center;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    //border: 1px red solid;
 }
 
 @media only screen and (min-width:600px){
@@ -83,16 +100,61 @@ body{
 
 }
 
-.heading-container,
+
 .form-container{
     
-    
-    
+   text-align: center;
+    @media only screen and (max-width: 768px) {
+        height: 60vh;
+    }
+}
+
+.heading-container,
+.form-container{
+    //border: 1px blue solid;   
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
    
+    @media only screen and (min-width: 769px) {
+        top: 50%;
+    transform: translateY(-50%);
+    }
     
-    // @media only screen and (max-width: 768px) {
-    //     height: 50%;
-    // }
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+h1{
+    color: #fff;
+    
+    @media only screen and (min-width: 769px) {
+        position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+        top: 50%;
+    transform: translateY(-50%);
+    }
+    margin: auto;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+    padding: 10%;
+    padding-left:20%;
 }
 
 form{
@@ -101,8 +163,8 @@ form{
     flex-direction: column;
     align-self: center;
     align-items: center;
-    
-    padding: 5%;
+    border-radius: 5px;
+    padding: 8%;
 }
 
 input[type="text"],
@@ -112,10 +174,15 @@ button {
     margin:5%;
     font-size: 1em;
     padding:3%;
-    padding-left:5%;
+    padding-left:10%;
     width: 100%;
-    border-radius: 5px;
+    border-radius: 8px;
     border:none;
 }
 
+button[type="submit"]{
+    border: 1px white solid;
+    background-color: #1c2746;
+    color: #fff;
+}
 
