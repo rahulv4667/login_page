@@ -2,25 +2,28 @@
 $bg-image-filter: #000033;
 
 
-@import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
+//@import url('https://fonts.googleapis.com/css?family=Didact+Gothic:300,400');
 
 body{
     margin:0%;
     padding:0%;
-    text-align: center;
+
 }
 
 
 @mixin container(){
     margin: 0% auto;
     padding: 0%;
-    width: 50%;
-    
-    
+    width: 50%;   
+    display: inline-block; 
     align-self: auto;
     align-content: center;
     align-items: center;
     position: relative;
+    @media screen and (max-width:767px) {
+        width: 100%;
+        height: min-content;
+    }
     
 }
 
@@ -33,27 +36,22 @@ body{
     width: 100%;
     display: flex;
     flex-direction: row;
-
+    @media screen and (max-width:768px){
+        flex-direction: column;
+    }
 }
 
-[class*="col-"] {
-    float: inline-middle;
-    
-    border: 1px red solid;
-    flex-wrap: wrap;
-
-  }
 
   .center {
-    margin: 0;
+    margin: 0 auto;
     position: absolute;
     top: 50%;
-    
     word-wrap:break-word;
     overflow-wrap: break-word;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
   }
+
 
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
@@ -68,6 +66,25 @@ body{
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
 
+
+@media only screen and (max-width:768px){
+.col-1 {width: 100%; height: 50%;}
+.col-2 {width: 100%; height: 50%;}
+.col-3 {width: 100%; height: 50%;}
+.col-4 {width: 100%; height: 50%;}
+.col-5 {width: 100%; height: 50%;}
+.col-6 {width: 100%; height: 50%;}
+.col-7 {width: 100%; height: 50%;}
+.col-8 {width: 100%; height: 50%;}
+.col-9 {width: 100%; height: 50%;}
+.col-10 {width: 100%; height: 50%;}
+.col-11 {width: 100%; height: 50%;}
+.col-12 {width: 100%; height: 50%;}
+}
+
+
+
+
 @mixin linGradient($r1,$g1,$b1,$r2,$g2,$b2,$o1,$o2,$image-url){
     background-image: linear-gradient(rgba($r1,$g1,$b1,$o1),rgba($r2,$g2,$b2,$o2)),url($image-url);
 
@@ -77,15 +94,24 @@ body{
     
     margin:0%;
     padding:0%;
-    width: 100vw;
-    height: 100vh;
-    display: inline-flex;
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
     justify-content: space-around;
     background-attachment: fixed;
-    
+    position: relative;
+
+    @media only screen and (max-width:768px) {
+        min-height: min-content;
+        min-width: min-content;
+    }
     
     background-size: cover;
     @if $image-url != null {
+        
+
         @include linGradient(0,0 ,51 ,0 ,0 ,51 ,0.5 ,0.5, $image-url );
     }
 
@@ -98,13 +124,16 @@ body{
 
 
 .contain-form{
-    align-self: center;
-    align-items: center;
-    align-content: center;
-    justify-items: center;
-    justify-self: center;
-    justify-content: space-around;
-    border: 2px blue solid;
+   
+
+
+    width: 100%;
+    height: 100%;
+    position: relative;
+    @media only screen and (max-width:768px){
+        
+        padding: 15%;
+    }
    
 }
 
@@ -113,7 +142,7 @@ h1{
     font-size: 2em;
     font-weight: bolder;
     font-family: 'Didact Gothic', sans-serif;
-    font-stretch: semi-expanded;
+    font-stretch: ultra-expanded;
     color: #fff;
     margin:10%;
     word-wrap:break-word;
@@ -121,18 +150,31 @@ h1{
 }
 
 form {
+    margin: auto;
     background-color: rgba(255, 255, 255, 0.5);
-    padding: 5%;
-   
-    align-self: center;
+    padding: 8%;
+    align-self: center; 
     align-content: center;
     align-items: center;
-    justify-content: space-around;
-    
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     border-radius: 2%;
-    font-family: 'Didact Gothic', sans-serif;
+    font-family: 'Didact Gothic',sans-serif;
+
+
+    position: absolute;
+    top: 50%;
+    @media only screen and (min-width:769px){
+        left:25%;
+        right:25%;
+    }
+    @media only screen and (max-width:768px){
+        left:0%;
+        top:0%;
+        right:0%;
+        padding: 5%;
+    }
+    transform: translate(-50%,-50%);
     
 
 }
@@ -143,14 +185,17 @@ input[type='tel'] ,
 button[type='submit']  {
     
     color: grey;
-    font-size: 1em;
+    font-size: 0.9em;
     background-color: #fff;
     margin:5%;
+    font-size: 200;
     padding: 3%;
+    padding-left: 10%;
     width: 100%;
     border-radius: 5px;
     border: 0px solid;
-
+    font-family: inherit;
+    font-weight: 300;
 
 }
 
@@ -159,4 +204,5 @@ button[type='submit']{
     font-weight: 900;
     background-color: darkslateblue;
     border: 1px white solid;
+    padding:3%;
 }
